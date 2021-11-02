@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+
+    <record id="action_sitecnet_software_view" model="ir.actions.act_window">
+      <field name="name">Sitecnet Software</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">sitecnet.software</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          software
+        </p>
+        <p>
+          Presiona Crear para agregar nuevo Software
+        </p>
+      </field>
+    </record>
+
+      <record id="action_sitecnet_software_categoria_view" model="ir.actions.act_window">
+      <field name="name">Sitecnet Categoria de Software</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">sitecnet.categoria_software</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Categoria Software
+        </p>
+        <p>
+          Presiona Crear para agregar una nueva Categoria de Software
+        </p>
+      </field>
+    </record>
+
+    <menuitem id="sitecnet_software_menu" name="Software" parent="sitecnet_clientes_menu" action="action_sitecnet_software_view" sequence="10"/>
+    <menuitem id="sitecnet_software_categoria_action" name="Categorias Software" parent="sitecnet_clientes_configuracion_menu" action="action_sitecnet_software_categoria_view" sequence="18"/>
+
+      <record id="view_sitecnet_software_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.software.form</field>
+      <field name="model">sitecnet.software</field>
+      <field name="arch" type="xml">
+        <form string="Software Form">
+            <group>
+            <group>
+          <field name="name"/>
+            <field name="licencia"/>
+            <field name="user"/>
+            <field name="passw"/>
+            </group>
+            <group>
+            <field name="fecha_compra"/>
+            <field name="vigencia"/>
+            <field name="cliente"/>
+            <field name="categoria"/>
+            </group>
+            </group>
+          <group>
+            <field name="equipos"/>
+            <field name="usuarios"/>
+            <field name="notas"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_sitecnet_software_tree" model="ir.ui.view">
+      <field name="name">view.sitecnet.software.tree</field>
+      <field name="model">sitecnet.software</field>
+      <field name="arch" type="xml">
+        <tree string="software Tree">
+          <field name="name"/>
+            <field name="name"/>
+            <field name="licencia"/>
+            <field name="cliente"/>
+        </tree>
+      </field>
+    </record>
+      
+            <record id="view_sitecnet_software_categoria_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.software.categoria.form</field>
+      <field name="model">sitecnet.categoria_software</field>
+      <field name="arch" type="xml">
+        <form string="Software Categoria Form">
+          <field name="name"/>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_sitecnet_software_categoria_tree" model="ir.ui.view">
+      <field name="name">view.sitecnet.software.categoria.tree</field>
+      <field name="model">sitecnet.categoria_software</field>
+      <field name="arch" type="xml">
+        <tree string="Software categoria Tree">
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+
+    <record id="action_sitecnet_clientes_view" model="ir.actions.act_window">
+      <field name="name">Sitecnet Clientes</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">sitecnet.clientes</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Clientes
+        </p>
+        <p>
+          Presiona Crear para agregar un nuevo Cliente
+        </p>
+      </field>
+    </record>
+
+    <menuitem id="main_sitecnet_clientes" name="Administracion IT"/>
+    <menuitem id="sitecnet_clientes_menu" name="Empresa" parent="main_sitecnet_clientes" sequence="0"/>
+    <menuitem id="sitecnet_clientes_configuracion_menu" name="Configuracion" parent="main_sitecnet_clientes" sequence="20"/>
+    <menuitem id="sitecnet_clientes_action" name="Empresa" parent="sitecnet_clientes_menu" action="action_sitecnet_clientes_view" sequence="0"/>
+
+      <record id="view_sitecnet_clientes_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.clientes.form</field>
+      <field name="model">sitecnet.clientes</field>
+      <field name="arch" type="xml">
+        <form string="Empresa Form">
+          <group>
+          <field name="name"/>
+            <field name="director"/>
+            <field name="contacto"/>
+            <field name="direccion"/>
+            <field name="rfc"/>
+            <field name="equipos"/>
+            <field name="usuarios"/>
+            <field name="software"/>
+            <field name="accesos"/>
+            <field name="notas"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_sitecnet_clientes_tree" model="ir.ui.view">
+      <field name="name">view.sitecnet.clientes.tree</field>
+      <field name="model">sitecnet.clientes</field>
+      <field name="arch" type="xml">
+        <tree string="Empresa Tree">
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+  </data>
+</odoo>
+

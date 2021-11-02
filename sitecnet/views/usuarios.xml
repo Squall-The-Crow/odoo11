@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+
+    <record id="action_sitecnet_usuarios_view" model="ir.actions.act_window">
+      <field name="name">Sitecnet Usuarios</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">sitecnet.usuarios</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Usuarios
+        </p>
+        <p>
+          Presiona Crear para agregar un nuevo Usuario
+        </p>
+      </field>
+    </record>
+
+    <menuitem id="sitecnet_usuarios_menu" name="Usuarios" parent="sitecnet_clientes_menu" action="action_sitecnet_usuarios_view" sequence="10"/>
+
+      <record id="view_sitecnet_usuarios_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.usuarios.form</field>
+      <field name="model">sitecnet.usuarios</field>
+      <field name="arch" type="xml">
+        <form string="Usuarios Form">
+          <group>
+          <field name="name"/>
+            <field name="cliente"/>
+            <field name="programas"/>
+            <field name="correo"/>
+            <field name="telefono"/>
+            <field name="puesto"/>
+            <field name="equipo"/>
+            <field name="tickets"/>
+            <field name="cuentas"/>
+          <field name="software"/>
+          <field name="notas"/>
+            <field name="file"/>
+            <field name="content"/>
+            <field name="content_fname"/>
+            <field name="documentos"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_sitecnet_usuarios_tree" model="ir.ui.view">
+      <field name="name">view.sitecnet.usuarios.tree</field>
+      <field name="model">sitecnet.usuarios</field>
+      <field name="arch" type="xml">
+        <tree string="Usuarios Tree">
+          <field name="name"/>
+            <field name="cliente"/>
+            <field name="correo"/>
+            <field name="telefono"/>
+        </tree>
+      </field>
+    </record>
+
+  </data>
+</odoo>

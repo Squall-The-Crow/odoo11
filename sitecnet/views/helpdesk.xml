@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+
+    <record id="seq_helpdesk" model="ir.sequence">
+      <field name="name">Secuencia de Servicios</field>
+      <field name="code">helpdesk</field>
+      <field name="prefix">ticket# </field>
+      <field name="padding">4</field>
+      <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="action_sitecnet_helpdesk_view" model="ir.actions.act_window">
+      <field name="name">Sitecnet Helpdesk</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">sitecnet.helpdesk</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Tickets de servicio
+        </p>
+        <p>
+          Presiona Crear para agregar un nuevo ticket
+        </p>
+      </field>
+    </record>
+
+        <record id="action_sitecnet_helpdesk_categoria_view" model="ir.actions.act_window">
+      <field name="name">Sitecnet Helpdesk Categoria</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">sitecnet.helpdesk.categoria</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Categoria de Servicio
+        </p>
+        <p>
+          Presiona Crear para agregar una nueva Categoria
+        </p>
+      </field>
+    </record>
+
+        <record id="action_sitecnet_helpdesk_subcategoria_view" model="ir.actions.act_window">
+      <field name="name">Sitecnet Helpdesk Subcategoria</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">sitecnet.helpdesk.subcategoria</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+          Subcategoria de Servicio
+        </p>
+        <p>
+          Presiona Crear para agregar una nueva Subcategoria
+        </p>
+      </field>
+    </record>
+
+    <menuitem id="main_sitecnet_helpdesk" name="Helpdesk"/>
+    <menuitem id="sitecnet_helpdesk_menu" name="Helpdesk" parent="main_sitecnet_helpdesk" sequence="0"/>
+    <menuitem id="sitecnet_helpdesk_configuracion_menu" name="Configuracion" parent="main_sitecnet_helpdesk" sequence="5"/>
+    <!--
+    <menuitem id="sitecnet_helpdesk_menu_categoria" name="Categoria" parent="sitecnet_helpdesk_configuracion_menu"/>
+    <menuitem id="sitecnet_helpdesk_menu_subcategoria" name="Subcategoria" parent="sitecnet_helpdesk_configuracion_menu"/>
+    -->
+    <menuitem id="sitecnet_helpdesk_action" name="Tickets" parent="sitecnet_helpdesk_menu" action="action_sitecnet_helpdesk_view" sequence="0"/>
+    <menuitem id="sitecnet_helpdesk_categoria_action" name="Categoria" parent="sitecnet_helpdesk_configuracion_menu" action="action_sitecnet_helpdesk_categoria_view"/>
+    <menuitem id="sitecnet_helpdesk_subcategoria_action" name="Subcategoria" parent="sitecnet_helpdesk_configuracion_menu" action="action_sitecnet_helpdesk_subcategoria_view"/>
+
+    <!--
+     <record id="view_itriplee_cotizaciones_search" model="ir.ui.view">
+      <field name="name">view.itriplee.cotizaciones.search</field>
+      <field name="model">itriplee.cotizaciones</field>
+      <field name="arch" type="xml">
+              <search>
+                <field name="cliente"/>
+                <field name="cliente_registrado"/>
+                <field name="empresa"/>
+                <field name="vendedor"/>
+                <field name="modelo"/>
+                <field name="name" string="No. Cotizacion"/>
+              </search>
+      </field>
+     </record>
+
+    <record id="view_itriplee_cotizaciones_graph" model="ir.ui.view">
+      <field name="name">view.itriplee.cotizaciones.graph</field>
+      <field name="model">itriplee.cotizaciones</field>
+      <field name="arch" type="xml">
+              <graph type="bar" string="Ventas por vendedor">
+                <field name="vendedor" type="row"/>
+                <field name="total" type="measure"/>
+              </graph>
+      </field>
+     </record>
+      -->
+    <record id="view_sitecnet_helpdesk_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.helpdesk.form</field>
+      <field name="model">sitecnet.helpdesk</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk Form">
+          <header>
+            <button name="button_aceptado" string="Aceptar" class="oe_highlight" type="object"/>
+            <button name="button_cancelado" string="Cancelar" type="object"/>
+            <button name="button_cerrar" string="Cerrar" type="object"/>
+            <field name="estado" widget="statusbar" statusbar_visible="abierto,aceptado,atrasado,pendiente,cancelado,cerrado"/>
+          </header>
+          <sheet>
+            <group string="Datos del Ticket">
+              <group>
+                <field name="name"/>
+                <field name="fecha"/>
+                <field name="tr"/>
+                <field name="importancia"/>
+              </group>
+              <group>
+                <field name="descripcion"/>
+                <field name="tipo"/>
+                <field name="usuario"/>
+                <field name="cliente"/>
+                <field name="equipo"/>
+              </group>
+            </group>
+            <group string="Datos de Usuario">
+              <group>
+                <field name="correo"/>
+                  <field name="telefono"/>
+                  <field name="direccion"/>
+              </group>
+               <group>
+                <field name="ubicacion"/>
+                <field name="responsable"/>
+                <field name="categoria"/>
+                <field name="subcategoria"/>
+              </group>
+              <group>
+
+              </group>
+            </group>
+            <notebook>
+              <page string="Actividades">
+                <group>
+                    <field name="actividades">
+                       <tree string="Actividades" editable="bottom">
+                         <field name="name"/>
+                         <field name="fecha"/>
+                         <field name="diagnostico"/>
+                         <field name="resumen"/>
+                         <field name="solucion"/>
+                         <field name="fecha_programada"/>
+                       </tree>
+                    </field>
+                </group>
+              </page>
+              <page string="Resultado">
+                <group>
+                  <group>
+                    <field name="calificacion"/>
+                    <field name="tiempo_total"/>
+                  </group>
+                  <group>
+                    <field name="cerrado"/>
+                    <field name="reinsidencia"/>
+                  </group>
+                </group>
+                <field name="evidencia"/>
+                <field name="resultado"/>
+                <field name="comentarios"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_sitecnet_helpdesk_tree" model="ir.ui.view">
+      <field name="name">view.sitecnet.helpdesk.tree</field>
+      <field name="model">sitecnet.helpdesk</field>
+      <field name="arch" type="xml">
+        <tree string="helpdesk Tree">
+          <field name="name"/>
+          <field name="fecha"/>
+          <field name="tr"/>
+          <field name="estado"/>
+          <field name="tipo"/>
+          <field name="usuario"/>
+          <field name="ubicacion"/>
+          <field name="elevado"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_sitecnet_helpdesk_categoria_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.helpdesk.categoria.form</field>
+      <field name="model">sitecnet.helpdesk.categoria</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk Categoria Form">
+          <field name="name"/>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_sitecnet_helpdesk_categoria_tree" model="ir.ui.view">
+      <field name="name">view.sitecnet.helpdesk.categoria.tree</field>
+      <field name="model">sitecnet.helpdesk.categoria</field>
+      <field name="arch" type="xml">
+        <tree string="Helpdesk Categoria Tree">
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_sitecnet_helpdesk_subcategoria_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.helpdesk.subcategoria.form</field>
+      <field name="model">sitecnet.helpdesk.subcategoria</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk Subcategoria Form">
+          <field name="name"/>
+          <field name="categoria"/>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_sitecnet_helpdesk_subcategoria_tree" model="ir.ui.view">
+      <field name="name">view.sitecnet.helpdesk.subcategoria.tree</field>
+      <field name="model">sitecnet.helpdesk.subcategoria</field>
+      <field name="arch" type="xml">
+        <tree string="Helpdesk Subcategoria Tree">
+          <field name="name"/>
+          <field name="categoria"/>
+        </tree>
+      </field>
+    </record>
+
+  </data>
+</odoo>
