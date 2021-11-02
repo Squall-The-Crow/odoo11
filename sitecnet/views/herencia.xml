@@ -10,6 +10,9 @@
           <field name="extension" position="after">
               <field name="usuarios" />
           </field>
+          <field name="usuarios" position="after">
+              <field name="cliente" />
+          </field>
       </field>
       </record>
   </data>
