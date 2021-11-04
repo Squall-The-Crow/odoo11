@@ -36,9 +36,6 @@
             <field name="cuentas"/>
           <field name="software"/>
           <field name="notas"/>
-            <field name="file"/>
-            <field name="content"/>
-            <field name="content_fname"/>
             <field name="documentos"/>
           </group>
         </form>

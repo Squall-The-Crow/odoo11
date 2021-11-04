@@ -16,11 +16,9 @@ class usuarios(models.Model):
         return self.env.ref("muk_dms.directory").id
 
     name = fields.Char('Nombre del Usuario', required=True, )
-    content_fname = fields.Char(string="filename")
-    content = DocumentBinary(string="Data", filename=_get_file_name, directory="1")
-    file = DocumentMany2one(comodel_name='muk_dms.file', string='Documentos')
     documentos = fields.One2many('muk_dms.file', 'usuarios',)  # Configurar,
     cliente = fields.Many2one('sitecnet.clientes', 'Cliente', required=True, ) ##Uso interno
+    procesos = fields.Many2one('sitecnet.rutinas', 'Procesos')
     programas = fields.Text('Programas Permitidos') #evaluar si poner casillas de verificacion
     correo = fields.Char('Correo', required=True, )
     puesto = fields.Char('Puesto', required=True, )

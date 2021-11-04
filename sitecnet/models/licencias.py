@@ -18,7 +18,11 @@ class software(models.Model):
                                 'software_id',
                                 'usuario_id',
                                 'Usuarios asignados')
-    #documentos = fields.One2many('Equipo')  # Configurar,
+    documentos = fields.Many2many('muk_dms.file',
+                              'software_documentos_rel',
+                              'software_id',
+                              'documentos_id',
+                              string='Documentos')
     notas = fields.Text('Notas')
     categoria = fields.Many2one('sitecnet.categoria_software','Categoria')
     equipos = fields.Many2many('sitecnet.equipos',

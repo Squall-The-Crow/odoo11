@@ -16,15 +16,15 @@ class equipos(models.Model):
                                ('mto', 'En mantenimiento'),
                                ('baja', 'Equipo fuera de servicio'),
                                ], string='Estado', default='activo')
-    ip = fields.Float('IP')
+    ip = fields.Char('IP')
     localizacion = fields.Char('Localizacion Fisica') #pensar en automatico direccion o sucursal en funcion de usuario o empresa
     descripcion = fields.Char('Descripcion corta')
     fecha_compra = fields.Date('Fecha de Compra')
     fin_garantia = fields.Date('Fin de Garantia')
     fecha_fin = fields.Date('Fecha de final de vida Util', required=True, )
-    #factura_cliente = fields.Binary('Factura')
-    #factura_interna = fields.Binary('Factura Interna')
-    #renta = fields.Boolean('Equipo en renta')
+    factura_cliente = fields.Many2one('muk_dms.file', 'Factura Cliente')
+    factura_interna = fields.Many2one('muk_dms.file', 'Factura Interna')
+    renta = fields.Boolean('Equipo en renta')
     #cuentas = fields.Many2many('sitecnet.cuentas',
      #                          'sitecnet_equipos_rel',
       #                         string='Cuentas', )
@@ -52,6 +52,7 @@ class equipos(models.Model):
     dd_capacidad = fields.Char('Capacidad DD')
     memoria_capacidad = fields.Char('Capacidad Memoria')
     memoria_tipo = fields.Char('Tecnologia memoria')
+    procesos = fields.Many2one('sitecnet.rutinas', 'Procesos')
 
 class tipo(models.Model):
     _name = 'sitecnet.tipo_equipo'

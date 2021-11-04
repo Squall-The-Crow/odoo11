@@ -65,6 +65,7 @@ class helpdesk(models.Model):
     direccion = fields.Char('Direccion de soporte', related='cliente.direccion')
     telefono = fields.Char('Telefono de contacto', related='usuario.telefono')
     elevado = fields.Boolean('Elevado')
+    #crear funcion de servicio contratado
     #cotizacion = fields.Many2one('sitecnet.cotizacion_tickets', string='Costo de Reparacion')
 
 #######Automatizacion de nombre consecutivo#########
