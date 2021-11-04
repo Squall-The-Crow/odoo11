@@ -27,7 +27,7 @@ categoria()
 
 
 class resUsers(models.Model):
-    _inherit = "res.Users"
+    _inherit = "res.users"
     usuarios = fields.Many2one('sitecnet.usuarios', 'Usuarios')
     cliente = fields.Many2one('sitecnet.clientes', 'Cliente')
     tipo = fields.Selection([('administrador', 'Administrador'),
