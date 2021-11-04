@@ -7,6 +7,3 @@ from . import usuarios
 from . import cuentas
 from . import licencias
 from . import herencia
-#from . import equipos
-#from . import marketing
-#from . import tc

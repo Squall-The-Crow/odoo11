@@ -49,7 +49,7 @@ class rutinas(models.Model):
     servicio = fields.Many2one ('sitecnet.servicios', 'Servicio de Origen')
     cliente = fields.Many2one('sitecnet.clientes', string='Clientes') #Heredado de servicios
     usuarios = fields.One2many('sitecnet.usuarios', 'procesos', string='Usuarios')
-    equipo = fields.One2many('sitecnet.equipos', 'procesos', string='Equipos')
+    equipo = fields.One2many('sitecnet.equipos', 'rutinas', string='Equipos')
     validacion = fields.Text('Comentarios de validacion')
     calificacion = fields.Selection([('bueno', 'Bueno'),
                                ('regular', 'Regular'),
