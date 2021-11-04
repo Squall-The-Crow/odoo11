@@ -21,7 +21,7 @@
     'version': '2.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'contacts', 'decimal_precision', 'web_google_maps', 'muk_dms_file', 'res.users'],
+    'depends': ['base', 'contacts', 'decimal_precision', 'web_google_maps', 'muk_dms_file'],
 
     # always loaded
     'data': [
