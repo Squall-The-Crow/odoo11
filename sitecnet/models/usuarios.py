@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-from addons.muk_dms_field.fields.dms_binary import DocumentBinary
-from addons.muk_dms_field.fields.dms_many2one import DocumentMany2one
-
 
 class usuarios(models.Model):
     _name = 'sitecnet.usuarios'
