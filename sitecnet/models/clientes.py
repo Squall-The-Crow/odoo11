@@ -25,32 +25,32 @@ class servicios(models.Model):
     _name = 'sitecnet.servicios'
     _rec_name = 'name'
 
-    name = fields.Char('Descripción corta', required=True,)
+    name = fields.Char('Descripcion corta', required=True,)
     cliente = fields.Many2one('sitecnet.clientes', string='Clientes')
     detalles = fields.Text('Detalles del Servicio')
     cantidad = fields.Integer('Cantidad de eventos contratados')
     intervalo = fields.Integer('Intervalo en dias')
     fcomienzo = fields.Date('Inicio de rutinas')
     ffinal = fields.Date('Final del contrato')
-    frevision = fields.Datetime('Revisión de servicios')
-    usuario = fields.Many2one ('res.users', 'Encargado de revisión')#poner filtro de usuario
+    frevision = fields.Datetime('Revision de servicios')
+    usuario = fields.Many2one ('res.users', 'Encargado de revision')#poner filtro de usuario
     revisado = fields.Boolean('Procedimiento Revisado')
-    rutinas = fields.One2many('sitecnet.rutinas', 'servicio', string='Rutinas programadas', copy=True, auto_join=True) 
+    rutinas = fields.One2many('sitecnet.rutinas', 'servicio', string='Rutinas programadas', copy=True, auto_join=True)
     #Crear boton y proceso de rutinas
 
 class rutinas(models.Model):
     _name = 'sitecnet.rutinas'
     _rec_name = 'name'
 
-    name = fields.Char('Descripción corta', required=True,)
-    responsable = fields.Many2one ('res.users', 'Responsable de supervisión')#poner filtro de usuario
-    tecnico = fields.Many2one ('res.users', 'Técnico asignado')#poner filtro de tecnico
+    name = fields.Char('Descripcion corta', required=True,)
+    responsable = fields.Many2one ('res.users', 'Responsable de supervision')#poner filtro de usuario
+    tecnico = fields.Many2one ('res.users', 'Tecnico asignado')#poner filtro de tecnico
     fecha = fields.Datetime('Fecha programada de actividad')
     servicio = fields.Many2one ('sitecnet.servicios', 'Servicio de Origen')
     cliente = fields.Many2one('sitecnet.clientes', string='Clientes') #Heredado de servicios
     usuarios = fields.One2many('sitecnet.usuarios', 'procesos', string='Usuarios')
     equipo = fields.One2many('sitecnet.equipos', 'procesos', string='Equipos')
-    validacion = fields.Text('Comentarios de validación')
+    validacion = fields.Text('Comentarios de validacion')
     calificacion = fields.Selection([('bueno', 'Bueno'),
                                ('regular', 'Regular'),
                                ('malo', 'Malo'),

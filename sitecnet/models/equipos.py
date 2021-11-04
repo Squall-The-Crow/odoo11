@@ -10,7 +10,7 @@ class equipos(models.Model):
     modelo = fields.Char('Modelo')
     serie = fields.Char('Numero de Serie', required=True)
     tipo = fields.Many2one('sitecnet.tipo_equipo', 'Tipo', required=True,)
-    subtipo = fields.Many2one('sitecnet.subtipo_equipo', 'Subtipo', required=True, )
+    subtipo = fields.Many2one('sitecnet.subtipo_equipo', 'Subtipo', required=True,)
     status = fields.Selection([('activo', 'Activo'),
                                ('fo', 'Fuera de operacion'),
                                ('mto', 'En mantenimiento'),
@@ -21,7 +21,7 @@ class equipos(models.Model):
     descripcion = fields.Char('Descripcion corta')
     fecha_compra = fields.Date('Fecha de Compra')
     fin_garantia = fields.Date('Fin de Garantia')
-    fecha_fin = fields.Date('Fecha de final de vida Util', required=True, )
+    fecha_fin = fields.Date('Fecha de final de vida Util', required=True,)
     factura_cliente = fields.Many2one('muk_dms.file', 'Factura Cliente')
     factura_interna = fields.Many2one('muk_dms.file', 'Factura Interna')
     renta = fields.Boolean('Equipo en renta')
@@ -39,7 +39,7 @@ class equipos(models.Model):
                               'equipos_id',
                               'software_id',
                               string='Licencias')
-    helpdesk = fields.One2many('sitecnet.helpdesk', 'equipo', string='Pedidos', copy=True, auto_join=True)
+    helpdesk = fields.One2many('sitecnet.helpdesk', 'equipo', string='Reportes', copy=True, auto_join=True)
     cuentas = fields.One2many('sitecnet.cuentas', 'equipo', string='Cuentas asociadas', copy=True, auto_join=True)
     equipo = fields.Many2one('sitecnet.equipos', string='Equipos', index=True, ondelete='cascade')
     componentes = fields.One2many('sitecnet.equipos', 'equipo')
@@ -58,7 +58,7 @@ class tipo(models.Model):
     _name = 'sitecnet.tipo_equipo'
     _rec_name = 'name'
 
-    name = fields.Char('Tipo de Equipo', required=True, )
+    name = fields.Char('Tipo de Equipo', required=True,)
 
 class subtipo(models.Model):
     _name = 'sitecnet.subtipo_equipo'

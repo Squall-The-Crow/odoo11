@@ -19,11 +19,11 @@ Documentos()
 
 class categoria(models.Model):
     _name = 'sitecnet.categoria_documentos'
-    _rec_name = 'name'       
+    _rec_name = 'name'
 
-    name = fields.Char('Categoria')         
+    name = fields.Char('Categoria')
 
-categoria()          
+categoria()
 
 
 class resUsers(models.Model):
@@ -32,10 +32,7 @@ class resUsers(models.Model):
     cliente = fields.Many2one('sitecnet.clientes', 'Cliente')
     tipo = fields.Selection([('administrador', 'Administrador'),
                                ('usuario', 'Usuario'),
-                               ('tecnico', 'Técnico'),
+                               ('tecnico', 'Tecnico'),
                                ], string='Tipo de Usuario', default='usuario')
-
-
-
 
 resUsers()

@@ -6,7 +6,7 @@ class cuentas(models.Model):
     _name = 'sitecnet.cuentas'
     _rec_name = 'name'
     name = fields.Char('Nombre de usuario', required=True,)
-    passw = fields.Char('Password', required=True, )
+    passw = fields.Char('Password', required=True,)
     acceso = fields.Char('Forma de acceso')
     tipo = fields.Selection([('equipo', 'Equipo'),
                                 ('usuario', 'Usuario'),
