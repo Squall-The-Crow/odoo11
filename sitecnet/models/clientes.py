@@ -12,7 +12,7 @@ class clientes(models.Model):
     contacto = fields.Char('Contacto principal')
     direccion = fields.Char('Direccion principal')
     rfc = fields.Char('RFC')
-    servicios = fields.one2many('sitecnet.servicios', 'cliente', string='Servicios contratados', copy=True, auto_join=True)
+    servicios = fields.One2many('sitecnet.servicios', 'cliente', string='Servicios contratados', copy=True, auto_join=True)
     rutinas = fields.One2many('sitecnet.rutinas', 'cliente', string='Rutinas y Procesos')
     equipos = fields.One2many('sitecnet.equipos', 'cliente', string='Equipos', copy=True, auto_join=True)
     usuarios = fields.One2many('sitecnet.usuarios', 'cliente', string='Usuarios', copy=True, auto_join=True)
