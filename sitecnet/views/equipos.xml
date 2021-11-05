@@ -2,6 +2,8 @@
  <odoo>
   <data>
 
+  <menuitem id="main_sitecnet_IT" name="Administracion IT"/>
+
     <record id="action_sitecnet_equipos_view" model="ir.actions.act_window">
       <field name="name">Sitecnet Equipos</field>
       <field name="type">ir.actions.act_window</field>

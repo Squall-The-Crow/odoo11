@@ -26,6 +26,7 @@ class equipos(models.Model):
     configuracion = fields.Char('Ubicacion de Configuracion')
     drivers = fields.Char('Ubicacion de Drivers')
     observaciones = fields.Text('Observaciones')
+    ID_remoto = fields.Char('ID de conexion remota')
     # poliza heredada de cliente    
     # responsiva heredada de usuario
     procesador_linea = fields.Char('Linea de Procesador')
@@ -38,12 +39,12 @@ class equipos(models.Model):
     tipo = fields.Many2one('sitecnet.tipo_equipo', 'Tipo', required=True,)#
     subtipo = fields.Many2one('sitecnet.subtipo_equipo', 'Subtipo', required=True,)#
     rutinas = fields.Many2one('sitecnet.rutinas', 'Procesos')#
-    cliente = fields.Many2one('sitecnet.clientes', string='Cliente')#
     componentes = fields.One2many('sitecnet.equipos', 'equipo', string='Componentes')
-    helpdesk = fields.One2many('sitecnet.helpdesk', 'equipo', string='Reportes', copy=True, auto_join=True)
+    helpdesk = fields.One2many('website.support.ticket', 'equipo', string='Reportes', copy=True, auto_join=True)
     cuentas = fields.One2many('sitecnet.cuentas', 'equipo', string='Cuentas asociadas', copy=True, auto_join=True)
     equipo = fields.Many2one('sitecnet.equipos', string='Equipos', index=True, ondelete='cascade')
-    usuarios = fields.Many2one('sitecnet.usuarios', string='Usuarios')
+    empresa = fields.Many2one('res.partner', string='Empresa')
+    usuario = fields.Many2one('res.partner', string='Usuario')
     licencias = fields.Many2many('sitecnet.software',
                               'software_equipos_rel',
                               'equipos_id',

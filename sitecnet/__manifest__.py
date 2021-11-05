@@ -21,18 +21,18 @@
     'version': '2.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'contacts', 'decimal_precision', 'web_google_maps', 'muk_dms_file'],
+    'depends': ['base', 'contacts', 'decimal_precision', 'web_google_maps', 'muk_dms_file', 'website.support.ticket'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/helpdesk.xml',
-        'views/clientes.xml',
-        'views/licencias.xml',
-        'views/usuarios.xml',
-        'views/equipos.xml',
-        'views/cuentas.xml',
-        'views/herencia.xml',
+        #'views/helpdesk.xml',
+        #'views/clientes.xml',
+        #'views/licencias.xml',
+        #'views/usuarios.xml',
+        #'views/equipos.xml',
+        #'views/cuentas.xml',
+        #'views/herencia.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

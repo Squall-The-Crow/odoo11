@@ -1,22 +1,26 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import fields, models, api
 
 class documentos(models.Model):
-    _name = 'sitecnet.documentos'
-    _rec_name = 'name'
+    _inherit = "muk_dms.file"
+    empresa = fields.Many2one('res.partner', 'Empresa')
+    usuario = fields.Many2one('res.partner', 'Usuario')#poner filtro y dominio
+    fequipos_cliente = fields.One2many('sitecnet.equipos', 'factura_cliente', 'Facturas Equipos')
+    fequipos_interna = fields.One2many('sitecnet.equipos', 'factura_interna', 'Facturas Internas de Equipos') # configurar que solo sean usuarios administradores
+    software = fields.Many2many('sitecnet.software',
+                              'software_documentos_rel',
+                              'documentos_id',
+                              'software_id',
+                              string='Licencias')
+    categoria_documentos = fields.Many2one('sitecnet.categoria_documentos', 'Categoria de Documentos')
 
-    name = fields.Char('documento', required=True, )
-    cliente = fields.Many2one('sitecnet.clientes', string='Cliente')  # Configurar
-    #responsable
-    tipo = fields.Many2one('sitecnet.categoria_documentos', string='Tipo de documento')  # Configurar
-    equipos = fields.One2many('Equipo')  # Configurar,
-    software = fields.One2many('Software')  # Configurar,
-    #servicio
-    usuario = fields.Many2one('sitecnet.usuario', string='Usuario')  # Configurar,
+documentos()
 
-class categoria_documentos(models.Model):
+class categoria(models.Model):
     _name = 'sitecnet.categoria_documentos'
     _rec_name = 'name'
 
-    name = fields.Char('Tipo de documento', required=True, )
+    name = fields.Char('Categoria')
+
+categoria()

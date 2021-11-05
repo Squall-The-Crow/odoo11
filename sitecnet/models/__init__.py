@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from . import cuentas
+from . import documentos
 from . import equipos
 from . import helpdesk
-from . import clientes
-from . import usuarios
-from . import cuentas
 from . import licencias
-from . import herencia
+from . import resPartner
+from . import servicios

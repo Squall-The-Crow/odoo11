@@ -2,38 +2,19 @@
 
 from odoo import models, fields, api
 
-
-class clientes(models.Model):
-    _name = 'sitecnet.clientes'
-    _rec_name = 'name'
-
-    name = fields.Char('Cliente', required=True,)
-    director = fields.Char('Director General', required=True,)
-    contacto = fields.Char('Contacto principal')
-    direccion = fields.Char('Direccion principal')
-    rfc = fields.Char('RFC')
-    servicios = fields.One2many('sitecnet.servicios', 'cliente', string='Servicios contratados', copy=True, auto_join=True)
-    rutinas = fields.One2many('sitecnet.rutinas', 'cliente', string='Rutinas y Procesos')
-    equipos = fields.One2many('sitecnet.equipos', 'cliente', string='Equipos', copy=True, auto_join=True)
-    usuarios = fields.One2many('sitecnet.usuarios', 'cliente', string='Usuarios', copy=True, auto_join=True)
-    documentos = fields.One2many('muk_dms.file', 'cliente', 'Documentos')
-    software = fields.One2many('sitecnet.software', 'cliente', string='Software', copy=True, auto_join=True)  # Configurar,
-    accesos = fields.One2many('sitecnet.cuentas', 'cliente', string='Accesos', copy=True, auto_join=True)  # Configurar,
-    notas = fields.Text('Notas')
-
 class servicios(models.Model):
     _name = 'sitecnet.servicios'
     _rec_name = 'name'
 
     name = fields.Char('Descripcion corta', required=True,)
-    cliente = fields.Many2one('sitecnet.clientes', string='Clientes')
+    empresa = fields.Many2one('res.partner', string='Clientes')
+    usuario = fields.Many2one('res.partner', 'Usuario')#poner filtro y dominio
     detalles = fields.Text('Detalles del Servicio')
     cantidad = fields.Integer('Cantidad de eventos contratados')
     intervalo = fields.Integer('Intervalo en dias')
     fcomienzo = fields.Date('Inicio de rutinas')
     ffinal = fields.Date('Final del contrato')
-    frevision = fields.Datetime('Revision de servicios')
-    usuario = fields.Many2one ('res.users', 'Encargado de revision')#poner filtro de usuario
+    frevision = fields.Datetime('Revision de servicios')    
     revisado = fields.Boolean('Procedimiento Revisado')
     rutinas = fields.One2many('sitecnet.rutinas', 'servicio', string='Rutinas programadas', copy=True, auto_join=True)
     #Crear boton y proceso de rutinas
@@ -43,12 +24,16 @@ class rutinas(models.Model):
     _rec_name = 'name'
 
     name = fields.Char('Descripcion corta', required=True,)
-    responsable = fields.Many2one ('res.users', 'Responsable de supervision')#poner filtro de usuario
+    empresa = fields.Many2one('res.partner', string='Clientes')
+    usuario = fields.Many2one('res.partner', 'Encargado')#poner filtro y dominio
     tecnico = fields.Many2one ('res.users', 'Tecnico asignado')#poner filtro de tecnico
     fecha = fields.Datetime('Fecha programada de actividad')
     servicio = fields.Many2one ('sitecnet.servicios', 'Servicio de Origen')
-    cliente = fields.Many2one('sitecnet.clientes', string='Clientes') #Heredado de servicios
-    usuarios = fields.One2many('sitecnet.usuarios', 'procesos', string='Usuarios')
+    usuarios = fields.Many2many('res.partner',
+                              'rutinas_usuarios_rel',
+                              'rutinas_id',
+                              'usuarios_id',
+                              string='Usuarios asignados')
     equipo = fields.One2many('sitecnet.equipos', 'rutinas', string='Equipos')
     validacion = fields.Text('Comentarios de validacion')
     calificacion = fields.Selection([('bueno', 'Bueno'),
@@ -62,10 +47,3 @@ class rutinas(models.Model):
                                     ('programado', 'programado'),
                                     ('atrasado', 'Atrasado'),
                                     ], string='Estado', default='programado')
-
-    ###########Sucursales
-    #cliente
-    #direccion
-    #encargado
-    #telefono
-    #usuarios

@@ -12,8 +12,8 @@ class software(models.Model):
     passw = fields.Char('Password')
     fecha_compra = fields.Date('Fecha de Compra', required=True, )
     vigencia = fields.Date('Vigencia', required=True, )
-    cliente = fields.Many2one('sitecnet.clientes', 'Cliente', required=True, )  ##Uso interno
-    usuarios = fields.Many2many('sitecnet.usuarios',
+    empresa = fields.Many2one('res.partner', string='Empresa')
+    usuarios = fields.Many2many('res.partner',
                                 'software_usuarios_rel',
                                 'software_id',
                                 'usuario_id',
