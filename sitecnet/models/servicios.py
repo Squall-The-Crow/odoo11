@@ -7,7 +7,7 @@ class servicios(models.Model):
     _rec_name = 'name'
 
     name = fields.Char('Descripcion corta', required=True,)
-    empresa = fields.Many2one('res.company', string='Clientes')
+    empresa = fields.Many2one('res.partner', string='Clientes', ondelete='cascade', select=True, domain=[('is_company', '=', True)])
     usuario = fields.Many2one('res.partner', 'Usuario')#poner filtro y dominio
     detalles = fields.Text('Detalles del Servicio')
     cantidad = fields.Integer('Cantidad de eventos contratados')
@@ -24,6 +24,7 @@ class servicios(models.Model):
     @api.multi
     def create_rutinas(self):
         vals = {
+            'name': self.name,
             'empresa': self.empresa.id,
             'fecha': self.fcomienzo
         }
@@ -40,7 +41,7 @@ class rutinas(models.Model):
     _rec_name = 'name'
 
     name = fields.Char('Descripcion corta', required=True,)
-    empresa = fields.Many2one('res.company', string='Clientes')
+    empresa = fields.Many2one('res.partner', string='Clientes', ondelete='cascade', select=True, domain=[('is_company', '=', True)])
     usuario = fields.Many2one('res.partner', 'Encargado')#poner filtro y dominio
     tecnico = fields.Many2one ('res.users', 'Tecnico asignado')#poner filtro de tecnico
     fecha = fields.Datetime('Fecha programada de actividad')

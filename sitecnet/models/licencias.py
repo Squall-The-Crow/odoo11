@@ -12,7 +12,7 @@ class software(models.Model):
     passw = fields.Char('Password')
     fecha_compra = fields.Date('Fecha de Compra', required=True, )
     vigencia = fields.Date('Vigencia', required=True, )
-    empresa = fields.Many2one('res.company', string='Empresa')
+    empresa = fields.Many2one('res.partner', string='Empresa', ondelete='cascade', select=True, domain=[('is_company', '=', True)])
     usuarios = fields.Many2many('res.partner',
                                 'software_usuarios_rel',
                                 'software_id',
