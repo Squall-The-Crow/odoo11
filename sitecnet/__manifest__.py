@@ -25,14 +25,14 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/menu.xml',
+        # 'security/ir.model.access.csv',        
         'views/configuracion.xml',
         'views/licencias.xml',
         'views/servicios.xml',
         'views/equipos.xml',
         'views/rutinas.xml',
-        #'views/herencia.xml',
+        'views/menu.xml',
+        #'views/herencia.xml', Partners, Usuarios, documentos y tickets
     ],
     # only loaded in demonstration mode
     'demo': [
