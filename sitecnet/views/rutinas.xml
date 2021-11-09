@@ -16,7 +16,7 @@
         </p>
       </field>
     </record>
-    
+
       <record id="view_sitecnet_rutinas_form" model="ir.ui.view">
       <field name="name">view.sitecnet.rutinas.form</field>
       <field name="model">sitecnet.rutinas</field>
@@ -47,7 +47,7 @@
                   <field name="usuarios"/>
                 </page>
                 <page string="Equipos">
-                  <field name="equipos"/>
+                  <field name="equipo"/>
                 </page>
             </notebook>
         </form>
