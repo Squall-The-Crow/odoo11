@@ -78,7 +78,7 @@
                 <page string="Componentes">
                   <field name="componentes">
                     <tree string="Componentes" editable="bottom">
-                      <field name="descripción"/>
+                      <field name="descripcion"/>
                       <field name="marca"/>
                       <field name="modelo"/>
                       <field name="tecnologia"/>
