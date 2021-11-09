@@ -4,7 +4,7 @@ from odoo import fields, models, api
 
 class documentos(models.Model):
     _inherit = "muk_dms.file"
-    empresa = fields.Many2one('res.partner', 'Empresa')
+    empresa = fields.Many2one('res.company', 'Empresa')
     usuario = fields.Many2one('res.partner', 'Usuario')#poner filtro y dominio
     fequipos_cliente = fields.One2many('sitecnet.equipos', 'factura_cliente', 'Facturas Equipos')
     fequipos_interna = fields.One2many('sitecnet.equipos', 'factura_interna', 'Facturas Internas de Equipos') # configurar que solo sean usuarios administradores

@@ -110,7 +110,15 @@
                   </field>
                 </page>
                 <page string="Tickets">
-                  <field name="helpdesk"/>
+                  <field name="helpdesk">
+                    <tree>
+                      <field name="create_date"/>
+                      <field name="ticket_number"/>
+                      <field name="parent_company_id"/>
+                      <field name="person_name"/>
+                      <field name="state"/>
+                    </tree>
+                  </field>
                 </page>
               </notebook>
           </sheet>

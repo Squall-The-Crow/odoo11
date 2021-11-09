@@ -49,7 +49,7 @@ class equipos(models.Model):
     helpdesk = fields.One2many('website.support.ticket', 'equipo', string='Reportes', copy=True, auto_join=True)
     cuentas = fields.One2many('sitecnet.cuentas', 'equipo', string='Cuentas asociadas', copy=True, auto_join=True)
     equipo = fields.Many2one('sitecnet.equipos', string='Equipos', index=True, ondelete='cascade')
-    empresa = fields.Many2one('res.partner', string='Empresa')
+    empresa = fields.Many2one('res.company', string='Empresa')
     usuario = fields.Many2one('res.partner', string='Usuario')
     licencias = fields.Many2many('sitecnet.software',
                               'software_equipos_rel',
