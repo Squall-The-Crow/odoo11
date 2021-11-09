@@ -50,8 +50,8 @@
                 <page string="Notas">
                   <field name="notas"/>
                 </page>
-              <notebook>            
-          <sheet>
+              </notebook>            
+          </sheet>
         </form>
       </field>
     </record>
