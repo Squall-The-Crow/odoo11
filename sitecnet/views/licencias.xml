@@ -64,7 +64,7 @@
           <field name="name"/>
             <field name="name"/>
             <field name="licencia"/>
-            <field name="cliente"/>
+            <field name="empresa"/>
         </tree>
       </field>
     </record>    
