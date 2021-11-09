@@ -4,7 +4,7 @@ from datetime import timedelta
 
 class helpdesk(models.Model):
     _inherit = "website.support.ticket"
-    _inherit = ['mail.activity.mixin']
+    _name = ['mail.activity.mixin']
 
     ubicacion = fields.Selection([('remoto', 'Remoto'),
                                ('oficina', 'Visita a Oficina'),
