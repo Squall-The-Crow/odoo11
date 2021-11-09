@@ -2,7 +2,7 @@
  <odoo>
   <data>
 
-    <record id="cuentas_menu_action" model="ir.actions.act_window">
+    <record id="rutinas_menu_action" model="ir.actions.act_window">
       <field name="name">Sitecnet Rutinas</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">sitecnet.rutinas</field>
