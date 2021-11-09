@@ -31,6 +31,7 @@
         'views/servicios.xml',
         'views/equipos.xml',
         'views/rutinas.xml',
+        'views/cuentas.xml',
         'views/menu.xml',
         #'views/herencia.xml', Partners, Usuarios, documentos y tickets
     ],
