@@ -26,7 +26,6 @@
                 <field name="name"/>
                 <field name="empresa"/>
                 <field name="usuario"/>
-                <field name="tipo"/>
             </group>
             <group string="Programacion">
                 <field name="cantidad"/>
@@ -35,7 +34,7 @@
                 <field name="ffinal"/>
             </group>
             <group string="revisión">
-                <field name="drevision"/>
+                <field name="frevision"/>
                 <field name="revisado"/>
             </group>
         </group>
