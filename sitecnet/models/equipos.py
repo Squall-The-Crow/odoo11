@@ -26,19 +26,25 @@ class equipos(models.Model):
     configuracion = fields.Char('Ubicacion de Configuracion')
     drivers = fields.Char('Ubicacion de Drivers')
     observaciones = fields.Text('Observaciones')
-    ID_remoto = fields.Char('ID de conexion remota')
-    # poliza heredada de cliente    
+    ID_remoto = fields.Char('ID de conexion remota')       
     # responsiva heredada de usuario
     procesador_linea = fields.Char('Linea de Procesador')
     procesador_modelo = fields.Char('Modelo de Procesador')
     dd_tipo = fields.Char('Tecnologia DD')
     dd_capacidad = fields.Char('Capacidad DD')
     memoria_capacidad = fields.Char('Capacidad Memoria')
-    memoria_tipo = fields.Char('Tecnologia memoria')    
+    memoria_tipo = fields.Char('Tecnologia memoria')
+    tecnologia = fields.Char('Técnologia')
+    capacidad = fields.Char('Capacidad')       
     #Campos Relacionados
+    poliza = fields.Many2one('sitecnet.servicios', 'Poliza', required=True,)
     tipo = fields.Many2one('sitecnet.tipo_equipo', 'Tipo', required=True,)#
     subtipo = fields.Many2one('sitecnet.subtipo_equipo', 'Subtipo', required=True,)#
-    rutinas = fields.Many2one('sitecnet.rutinas', 'Procesos')#
+    rutinas = fields.Many2many('sitecnet.rutinas',
+                              'equipos_rutinas_rel',
+                              'equipos_id',
+                              'rutinas_id',
+                              string='Rutinas asignadas')
     componentes = fields.One2many('sitecnet.equipos', 'equipo', string='Componentes')
     helpdesk = fields.One2many('website.support.ticket', 'equipo', string='Reportes', copy=True, auto_join=True)
     cuentas = fields.One2many('sitecnet.cuentas', 'equipo', string='Cuentas asociadas', copy=True, auto_join=True)

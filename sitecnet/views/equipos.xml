@@ -2,9 +2,7 @@
  <odoo>
   <data>
 
-  <menuitem id="main_sitecnet_IT" name="Administracion IT"/>
-
-    <record id="action_sitecnet_equipos_view" model="ir.actions.act_window">
+    <record id="equipos_menu_action" model="ir.actions.act_window">
       <field name="name">Sitecnet Equipos</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">sitecnet.equipos</field>
@@ -17,41 +15,7 @@
           Presiona Crear para agregar un nuevo Equipo
         </p>
       </field>
-    </record>
-
-      <record id="action_sitecnet_equipos_tipo_view" model="ir.actions.act_window">
-      <field name="name">Sitecnet Tipo de Equipos</field>
-      <field name="type">ir.actions.act_window</field>
-      <field name="res_model">sitecnet.tipo_equipo</field>
-      <field name="view_mode">tree,form</field>
-      <field name="help" type="html">
-        <p class="oe_view_nocontent_create">
-          Tipo de Equipo
-        </p>
-        <p>
-          Presiona Crear para agregar un Tipo de equipo
-        </p>
-      </field>
-    </record>
-
-      <record id="action_sitecnet_equipos_subtipo_view" model="ir.actions.act_window">
-      <field name="name">Sitecnet Subtipo de Equipos</field>
-      <field name="type">ir.actions.act_window</field>
-      <field name="res_model">sitecnet.subtipo_equipo</field>
-      <field name="view_mode">tree,form</field>
-      <field name="help" type="html">
-        <p class="oe_view_nocontent_create">
-          Subtipo de Equipos
-        </p>
-        <p>
-          Presiona Crear para agregar un nuevo Subtipo de equipo
-        </p>
-      </field>
-    </record>
-
-    <menuitem id="sitecnet_equipos_menu" name="Equipos" parent="sitecnet_clientes_menu" action="action_sitecnet_equipos_view" sequence="10"/>
-    <menuitem id="sitecnet_equipos_tipo_action" name="Tipo" parent="sitecnet_clientes_configuracion_menu" action="action_sitecnet_equipos_subtipo_view" sequence="16"/>
-    <menuitem id="sitecnet_equipos_subtipo_action" name="Subtipo" parent="sitecnet_clientes_configuracion_menu" action="action_sitecnet_equipos_tipo_view" sequence="17"/>
+    </record>     
 
       <record id="view_sitecnet_equipos_form" model="ir.ui.view">
       <field name="name">view.sitecnet.equipos.form</field>
@@ -65,26 +29,31 @@
             <button name="button_baja" string="Fuera de Servicio" type="object"/>
             <field name="status" widget="statusbar" statusbar_visible="activo,fo,mto,baja"/>
           </header>
-          <sheet>
+            <sheet>
+              <h1>
+                <field name="serie" default_focus="1" placeholder="Serie"/>
+              </h1>
               <group string="Datos del Equipo">
               <group>
-                  <field name="descripcion"/>
+                <field name="descripcion"/>                
                 <field name="marca"/>
                 <field name="modelo"/>
-                <field name="serie"/>
                 <field name="tipo"/>
                 <field name="subtipo"/>
-                <field name="ip"/>
+                <field name="tecnologia"/>
+                <field name="capacidad"/>
+                <field name="renta"/>
+                <field name="poliza"/>
               </group>
               <group>
+                  <field name="cliente"/>
+                  <field name="usuario"/>
+                  <field name="equipo"/>
                   <field name="fecha_compra"/>
                   <field name="fin_garantia"/>
                   <field name="fecha_fin"/>
                   <field name="dominio"/>
-                  <field name="nombre_dominio"/>
-                  <field name="configuracion"/>
-                  <field name="drivers"/>
-                  <field name="observaciones"/>
+                  <field name="nombre_dominio"/>                                 
               </group>
               </group>
                <group string="informacion complementaria">
@@ -93,20 +62,58 @@
                 <field name="procesador_modelo"/>
                 <field name="dd_tipo"/>
                 <field name="dd_capacidad"/>
+                <field name="memoria_capacidad"/>
+                <field name="memoria_tipo"/>
               </group>
               <group>
-                  <field name="memoria_capacidad"/>
-                  <field name="memoria_tipo"/>
-                  <field name="cliente"/>
-                  <field name="localizacion"/>
+                <field name="configuracion"/>
+                <field name="drivers"/> 
+                <field name="ip"/>                  
+                <field name="localizacion"/>
+                <field name="factura_cliente"/>
+                <field name="factura_interna"/>
               </group>
               </group>
-              <field name="componentes"/>
-              <field name="equipo"/>
-              <field name="licencias"/>
-              <field name="cuentas"/>
-              <field name="usuarios"/>
-              <field name="helpdesk"/>
+              <notebook>
+                <page string="Componentes">
+                  <field name="componentes">
+                    <tree string="Componentes" editable="bottom">
+                      <field name="descripción"/>
+                      <field name="marca"/>
+                      <field name="modelo"/>
+                      <field name="tecnologia"/>
+                      <field name="capacidad"/>
+                      <field name="serie"/>
+                    </tree>
+                  </field>
+                </page>
+                <page string="Observaciones">
+                <field name="observaciones"> 
+                </page>
+                <page string="Licencias">
+                  <field name="licencias">
+                    <tree string="Licencias" editable="bottom">
+                      <field name="name"/>
+                      <field name="licencia"/>
+                      <field name="user"/>
+                      <field name="passw"/>
+                    </tree>
+                  </field>
+                </page>
+                <page string="Cuentas">
+                  <field name="cuentas">
+                    <tree string="Cuentas" editable="bottom">
+                      <field name="name"/>
+                      <field name="passw"/>
+                      <field name="tipo"/>
+                      </tree>
+                  </field>
+                </page>
+                <page string="Tickets">
+                  <field name="helpdesk"/>
+                  </field>
+                </page>
+              </notebook>
           </sheet>
         </form>
       </field>
@@ -124,49 +131,7 @@
             <field name="status"/>
         </tree>
       </field>
-    </record>
-
-      <record id="view_sitecnet_equipo_tipo_form" model="ir.ui.view">
-      <field name="name">view.sitecnet.equipo.tipo.form</field>
-      <field name="model">sitecnet.tipo_equipo</field>
-      <field name="arch" type="xml">
-        <form string="Equipos Tipo Form">
-          <field name="name"/>
-        </form>
-      </field>
-    </record>
-
-    <record id="view_sitecnet_equipo_tipo_tree" model="ir.ui.view">
-      <field name="name">view.sitecnet.equipo.tipo.tree</field>
-      <field name="model">sitecnet.tipo_equipo</field>
-      <field name="arch" type="xml">
-        <tree string="Equipos Tipo Tree">
-          <field name="name"/>
-        </tree>
-      </field>
-    </record>
-
-      <record id="view_sitecnet_equipo_subtipo_form" model="ir.ui.view">
-      <field name="name">view.sitecnet.equipo.subtipo.form</field>
-      <field name="model">sitecnet.subtipo_equipo</field>
-      <field name="arch" type="xml">
-        <form string="Equipos Subtipo Form">
-          <field name="name"/>
-            <field name="tipo"/>
-        </form>
-      </field>
-    </record>
-
-    <record id="view_sitecnet_equipo_subtipo_tree" model="ir.ui.view">
-      <field name="name">view.sitecnet.equipo.subtipo.tree</field>
-      <field name="model">sitecnet.subtipo_equipo</field>
-      <field name="arch" type="xml">
-        <tree string="Equipos Subtipo Tree">
-          <field name="name"/>
-            <field name="tipo"/>
-        </tree>
-      </field>
-    </record>
-
+    </record>  
+    
   </data>
 </odoo>

@@ -18,7 +18,7 @@
     # Check https://github.com/odoo/odoo/blob/11.0/odoo/addons/base/module/module_data.xml
     # for the full list
     'category': 'Production',
-    'version': '2.0',
+    'version': '2.1',
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'contacts', 'decimal_precision', 'web_google_maps', 'muk_dms_file', 'website_support'],
@@ -26,12 +26,12 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        #'views/helpdesk.xml',
-        #'views/clientes.xml',
-        #'views/licencias.xml',
-        #'views/usuarios.xml',
-        #'views/equipos.xml',
-        #'views/cuentas.xml',
+        'views/menu.xml',
+        'views/configuracion.xml',
+        'views/licencias.xml',
+        'views/servicios.xml',
+        'views/equipos.xml',
+        'views/rutinas.xml',
         #'views/herencia.xml',
     ],
     # only loaded in demonstration mode

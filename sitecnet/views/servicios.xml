@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+  <data>
+
+    <record id="servicios_menu_action" model="ir.actions.act_window">
+      <field name="name">Sitecnet Servicios</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">sitecnet.servicios</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Servicios
+        </p>
+        <p>
+          Presiona Crear para agregar una nuevo servicio
+        </p>
+      </field>
+    </record>
+      <record id="view_sitecnet_servicios_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.servicios.form</field>
+      <field name="model">sitecnet.servicios</field>
+      <field name="arch" type="xml">
+        <form string="Servicios Form">
+        <group string="Datos Generales">
+            <group>
+                <field name="name"/>
+                <field name="empresa"/>
+                <field name="usuario"/>
+                <field name="tipo"/>
+            </group>
+            <group string="Programacion">
+                <field name="cantidad"/>
+                <field name="intervalo"/>
+                <field name="fcomienzo"/>
+                <field name="ffinal"/>
+            </group>
+            <group string="revisión">
+                <field name="drevision"/>
+                <field name="revisado"/>
+            </group>
+        </group>
+        <group string="Detalles">
+            <field name="detalles"/>
+        </group>
+        <notebook>
+             <page string="Rutinas">
+                <field name="rutinas"/>
+            </page>
+            <page string="Equipos">
+                <field name="equipos"/>
+            </page>
+        </notebook>  
+
+        </form>
+      </field>
+    </record>
+
+    <record id="view_sitecnet_servicios_tree" model="ir.ui.view">
+      <field name="name">view.sitecnet.servicios.tree</field>
+      <field name="model">sitecnet.servicios</field>
+      <field name="arch" type="xml">
+        <tree string="Servicios Tree">
+          <field name="name"/>
+            <field name="name"/>
+            <field name="empresa"/>
+            <field name="ffinal"/>
+        </tree>
+      </field>
+    </record>
+
+  </data>
+</odoo>

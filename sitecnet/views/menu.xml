@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <menuitem id="servicios_programados_menu" name="Servicios Programados" sequence="60"/>
+        <menuitem id="rutinas_menu" name="Servicios Programados" parent="servicios_programados_menu" action="rutinas_menu_action" sequence="10"/>
+
+        <menuitem id="administracion_it_menu" name="Administración IT" sequence="50"/>
+        <menuitem id="equipos_menu" name="Equipos" parent="administracion_it_menu" action="equipos_menu_action" sequence="10"/>
+        <menuitem id="software_menu" name="Software" parent="administracion_it_menu" action="software_menu_action" sequence="20"/>
+        <menuitem id="servicios_menu" name="Servicios Contrados" parent="administracion_it_menu" action="servicios_menu_action" sequence="30"/>
+        <menuitem id="cuentas_menu" name="Cuentas de acceso" parent="administracion_it_menu" action="cuentass_menu_action" sequence="40"/>
+
+        <menuitem id="administracion_it_configuracion_menu" name="Configuracion" parent="administracion_it_menu" sequence="999"/>
+        <menuitem id="configuracion_tipo_equipos_menu" name="Tipo Equipos" parent="administracion_it_configuracion_menu" action="configuracion_tipo_equipos_action" sequence="10"/>
+        <menuitem id="configuracion_subtipo_equipos_menu" name="Subtipo Equipos" parent="administracion_it_configuracion_menu" action="configuracion_subtipo_equipos_action" sequence="20"/>
+        <menuitem id="configuracion_categoria_software_menu" name="Categoria Software" parent="administracion_it_configuracion_menu" action="configuracion_categoria_software_action" sequence="30"/>
+        <menuitem id="configuracion_categoria_servicios_menu" name="Categoria Servicios" parent="administracion_it_configuracion_menu" action="configuracion_categoria_servicios_action" sequence="40"/>
+    </data>
+</openerp>
