@@ -126,7 +126,7 @@
           <field name="descripcion"/>
             <field name="modelo"/>
             <field name="empresa"/>
-            <field name="usuarios"/>
+            <field name="usuario"/>
             <field name="status"/>
         </tree>
       </field>
