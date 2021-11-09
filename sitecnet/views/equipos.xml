@@ -46,7 +46,7 @@
                 <field name="poliza"/>
               </group>
               <group>
-                  <field name="cliente"/>
+                  <field name="empresa"/>
                   <field name="usuario"/>
                   <field name="equipo"/>
                   <field name="fecha_compra"/>
