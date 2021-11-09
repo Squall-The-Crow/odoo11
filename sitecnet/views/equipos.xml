@@ -125,7 +125,7 @@
         <tree string="Equipos Tree">
           <field name="descripcion"/>
             <field name="modelo"/>
-            <field name="cliente"/>
+            <field name="empresa"/>
             <field name="usuarios"/>
             <field name="status"/>
         </tree>
