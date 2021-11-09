@@ -5,7 +5,7 @@
         <field name="name">Sitecnet Configuracion Tipo Equipos</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">sitecnet.tipo_equipo</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
         <field name="help" type="html">
           <p class="oe_view_nocontent_create">
             Tipo Equipo
@@ -27,11 +27,21 @@
       </field>
     </record>
 
+    <record id="view_sitecnet_equipo_tipo_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.equipo.tipo.form</field>
+      <field name="model">sitecnet.tipo_equipo</field>
+      <field name="arch" type="xml">
+        <form string="Equipos Tipo Form">
+          <field name="name"/>
+        </form>
+      </field>
+    </record>
+
     <record id="configuracion_subtipo_equipos_action" model="ir.actions.act_window">
         <field name="name">Sitecnet Configuracion Subtipo Equipos</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">sitecnet.subtipo_equipo</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
         <field name="help" type="html">
           <p class="oe_view_nocontent_create">
             Subtipo Equipo
@@ -53,11 +63,22 @@
       </field>
     </record>
 
+    <record id="view_sitecnet_equipo_subtipo_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.equipo.subtipo.form</field>
+      <field name="model">sitecnet.subtipo_equipo</field>
+      <field name="arch" type="xml">
+        <form string="Equipos Subtipo Form">
+          <field name="name"/>
+            <field name="tipo"/>
+        </form>
+      </field>
+    </record>
+
      <record id="configuracion_categoria_software_action" model="ir.actions.act_window">
         <field name="name">Sitecnet Configuracion Categoria Sofware</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">sitecnet.categoria_software</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
         <field name="help" type="html">
           <p class="oe_view_nocontent_create">
             Categoria de Sofware
@@ -78,11 +99,21 @@
       </field>
     </record>
 
+    <record id="view_sitecnet_software_categoria_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.software.categoria.form</field>
+      <field name="model">sitecnet.categoria_software</field>
+      <field name="arch" type="xml">
+        <form string="Software categoria Form">
+          <field name="name"/>
+        </form>
+      </field>
+    </record>
+
     <record id="configuracion_categoria_servicios_action" model="ir.actions.act_window">
         <field name="name">Sitecnet Configuracion Categoria Servicios</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">sitecnet.categoria_servicios</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
         <field name="help" type="html">
           <p class="oe_view_nocontent_create">
             Categoria de Servicios
@@ -100,6 +131,16 @@
         <tree string="Servicios categoria Tree">
           <field name="name"/>
         </tree>
+      </field>
+    </record>
+
+    <record id="view_sitecnet_servicios_categoria_form" model="ir.ui.view">
+      <field name="name">view.sitecnet.servicios.categoria.form</field>
+      <field name="model">sitecnet.categoria_servicios</field>
+      <field name="arch" type="xml">
+        <form string="Servicios categoria form">
+          <field name="name"/>
+        </form>
       </field>
     </record>
 

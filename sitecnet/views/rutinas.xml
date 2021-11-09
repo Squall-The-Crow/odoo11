@@ -6,7 +6,7 @@
       <field name="name">Sitecnet Rutinas</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">sitecnet.rutinas</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,calendar</field>
       <field name="help" type="html">
         <p class="oe_view_nocontent_create">
           Rutinas
@@ -64,6 +64,18 @@
             <field name="empresa"/>
             <field name="fecha"/>
         </tree>
+      </field>
+    </record>
+
+    <record id="calendar" model="ir.ui.view">
+      <field name="name">view.sitecnet.rutinas.calendar</field>
+      <field name="model">sitecnet.rutinas</field>
+      <field name="priority" eval="2"/>
+      <field name="arch" type="xml">
+        <calendar string="Servicio Calendar" date_start="fecha" color="tecnico" event_open_popup="true">
+          <field name="tecnico"/>
+          <field name="empresa"/>
+        </calendar>
       </field>
     </record>
 

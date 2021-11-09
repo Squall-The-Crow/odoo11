@@ -21,11 +21,14 @@
       <field name="model">sitecnet.servicios</field>
       <field name="arch" type="xml">
         <form string="Servicios Form">
+        <header>
+            <button type="object" name="create_rutinas" string="Crear Rutinas"/>
+        </header>
         <group string="Datos Generales">
             <group>
                 <field name="name"/>
                 <field name="empresa"/>
-                <field name="usuario"/>
+                <field name="usuario" string="responsable"/>
             </group>
             <group string="Programacion">
                 <field name="cantidad"/>

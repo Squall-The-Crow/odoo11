@@ -16,9 +16,18 @@ class servicios(models.Model):
     ffinal = fields.Date('Final del contrato')
     frevision = fields.Datetime('Revision de servicios')    
     revisado = fields.Boolean('Procedimiento Revisado')
+    rutinas_creadas = fields.Boolean('rutinas creadas')
     rutinas = fields.One2many('sitecnet.rutinas', 'servicio', string='Rutinas programadas', copy=True, auto_join=True)
     equipos = fields.One2many('sitecnet.equipos', 'poliza', string='Equipos amparados', copy=True, auto_join=True)
     #Crear boton y proceso de rutinas
+
+    @api.multi
+    def create_rutinas(self):
+        vals = {
+            'empresa': self.empresa.id,
+            'fecha': self.fcomienzo
+        }
+        self.env['sitecnet.rutinas'].create(vals)
 
 class categoria_servicios(models.Model):
     _name = 'sitecnet.categoria_servicios'

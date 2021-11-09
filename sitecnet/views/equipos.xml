@@ -110,7 +110,7 @@
                   </field>
                 </page>
                 <page string="Tickets">
-                  <field name="helpdesk">
+                  <field name="helpdesk" editable="bottom">
                     <tree>
                       <field name="create_date"/>
                       <field name="ticket_number"/>
