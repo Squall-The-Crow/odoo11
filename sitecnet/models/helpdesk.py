@@ -4,6 +4,7 @@ from datetime import timedelta
 
 class helpdesk(models.Model):
     _inherit = "website.support.ticket"
+    _inherit = ['mail.activity.mixin']
 
     ubicacion = fields.Selection([('remoto', 'Remoto'),
                                ('oficina', 'Visita a Oficina'),
@@ -25,6 +26,7 @@ class helpdesk(models.Model):
     telefono = fields.Char('Telefono de contacto')
     cel = fields.Char('Movil de contacto')
     elevado = fields.Boolean('Elevado')
+    activity_ids = fields.One2many('mail.activity', string='Actividades')
 
     @api.onchange('equipo')
     def _onchange_equipo(self):
@@ -49,8 +51,8 @@ class actividades(models.Model):
     fecha = fields.Date('Fecha', default=_default_fecha, required=True)
     resumen = fields.Text('Resumen de actividad', required=True)
     diagnostico = fields.Text('Diagnostico')
-    reporte = fields.Many2one('website.support.ticket', 'Reporte de Origen')
-    fecha_programada = fields.Date('Fecha programada de respuesta', default=_default_fecha)
+    reporte = fields.Many2one('website.support.ticket', 'Reporte de Origen') # poner automatico
+    fecha_programada = fields.Date('Hora de actividad', default=_default_fecha)
     solucion = fields.Selection([('si', 'Si'),
                                ('no', 'No'),
                                 ('na', 'No Aplica'),
