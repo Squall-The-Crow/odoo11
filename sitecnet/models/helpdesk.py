@@ -4,7 +4,6 @@ from datetime import timedelta
 
 class helpdesk(models.Model):
     _inherit = "website.support.ticket"
-    _name = ['mail.activity.mixin']
 
     ubicacion = fields.Selection([('remoto', 'Remoto'),
                                ('oficina', 'Visita a Oficina'),
@@ -26,7 +25,6 @@ class helpdesk(models.Model):
     telefono = fields.Char('Telefono de contacto')
     cel = fields.Char('Movil de contacto')
     elevado = fields.Boolean('Elevado')
-    activity_ids = fields.One2many('mail.activity', string='Actividades')
 
     @api.onchange('equipo')
     def _onchange_equipo(self):
