@@ -119,8 +119,8 @@
                   </field>
                 </page>
                 <page string="Cuentas">
-                  <field name="cuentas">
-                    <tree string="Cuentas" editable="bottom">
+                  <field name="cuentas" domain="[('empresa','=', empresa)]">
+                    <tree string="Cuentas">
                       <field name="name"/>
                       <field name="passw"/>
                       <field name="tipo"/>
@@ -128,7 +128,7 @@
                   </field>
                 </page>
                 <page string="Tickets">
-                  <field name="helpdesk" editable="bottom">
+                  <field name="helpdesk">
                     <tree>
                       <field name="create_date"/>
                       <field name="ticket_number"/>
