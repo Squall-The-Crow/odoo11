@@ -9,45 +9,45 @@
             <field name="priority" eval="60"/>
             <field name="arch" type="xml">
                 <field name="category_id" position="after">
-                    <field name="director"/>
+                    <field name="director" attrs="{'invisible' :[('is_company', '=', False )]}"/>
                 </field>
                 <field name="director" position="after">
-                    <field name="contacto"/>
+                    <field name="contacto" attrs="{'invisible' :[('is_company', '=', False )]}"/>
                 </field>                
                 <notebook position="inside">
                     <page string="Servicios">
                             <group>
-                                <field name="servicios"/>
+                                <field name="servicios" attrs="{'invisible' :[('is_company', '=', False )]}"/>
                             </group>
                     </page>
                     <page string="Rutinas">
                         <group>
-                            <field name="rutinas"/>
+                            <field name="rutinas" attrs="{'invisible' :[('is_company', '=', False )]}"/>
                             <field name="rutinas_usuario" attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>                    
                     </page>
                     <page string="Equipos">
                         <group>
-                            <field name="equipos"/>
-                            <field name="equipos_usuario"/>
+                            <field name="equipos" attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                            <field name="equipos_usuario" attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
                     <page string="Documentos">
                         <group>
-                            <field name="documentos"/>
-                            <field name="documentos_usuario"/>
+                            <field name="documentos" attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                            <field name="documentos_usuario" attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
                     <page string="Software">
                         <group>
-                            <field name="software"/>
-                            <field name="software_usuario"/>
+                            <field name="software" attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                            <field name="software_usuario" attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
                     <page string="Accesos">
                         <group>
-                            <field name="accesos"/>
-                            <field name="accesos_usuario"/>
+                            <field name="accesos" attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                            <field name="accesos_usuario" attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
                 </notebook>
