@@ -9,45 +9,75 @@
             <field name="priority" eval="60"/>
             <field name="arch" type="xml">
                 <field name="category_id" position="after">
-                    <field name="director" attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                    <field name="director"
+                    domain="[('parent_id','=', name)]"
+                    options="{'no_create_edit': True},
+                           {'no_quick_create'}" 
+                    attrs="{'invisible' :[('is_company', '=', False )]}"/>
                 </field>
                 <field name="director" position="after">
-                    <field name="contacto" attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                    <field name="contacto" 
+                    domain="[('parent_id','=', name)]"
+                    options="{'no_create_edit': True},
+                           {'no_quick_create'}" 
+                    attrs="{'invisible' :[('is_company', '=', False )]}"/>
                 </field>                
                 <notebook position="inside">
                     <page string="Servicios">
                             <group>
-                                <field name="servicios" attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                                <field name="servicios" 
+                                domain="[('empresa','=', empresa)]"
+                                attrs="{'invisible' :[('is_company', '=', False )]}"/>
                             </group>
                     </page>
                     <page string="Rutinas">
                         <group>
-                            <field name="rutinas" attrs="{'invisible' :[('is_company', '=', False )]}"/>
-                            <field name="rutinas_usuario" attrs="{'invisible' :[('is_company', '=', True )]}"/>
+                            <field name="rutinas" 
+                            domain="[('empresa','=', empresa)]"
+                            attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                            <field name="rutinas_usuario" 
+                            domain="[('empresa','=', empresa)]"
+                            attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>                    
                     </page>
                     <page string="Equipos">
                         <group>
-                            <field name="equipos" attrs="{'invisible' :[('is_company', '=', False )]}"/>
-                            <field name="equipos_usuario" attrs="{'invisible' :[('is_company', '=', True )]}"/>
+                            <field name="equipos" 
+                            domain="[('empresa','=', empresa)]"
+                            attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                            <field name="equipos_usuario" 
+                            domain="[('empresa','=', empresa)]"
+                            attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
                     <page string="Documentos">
                         <group>
-                            <field name="documentos" attrs="{'invisible' :[('is_company', '=', False )]}"/>
-                            <field name="documentos_usuario" attrs="{'invisible' :[('is_company', '=', True )]}"/>
+                            <field name="documentos" 
+                            domain="[('empresa','=', empresa)]"
+                            attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                            <field name="documentos_usuario" 
+                            domain="[('empresa','=', empresa)]"
+                            attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
                     <page string="Software">
                         <group>
-                            <field name="software" attrs="{'invisible' :[('is_company', '=', False )]}"/>
-                            <field name="software_usuario" attrs="{'invisible' :[('is_company', '=', True )]}"/>
+                            <field name="software" 
+                            domain="[('empresa','=', empresa)]"
+                            attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                            <field name="software_usuario" 
+                            domain="[('empresa','=', empresa)]"
+                            attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
                     <page string="Accesos">
                         <group>
-                            <field name="accesos" attrs="{'invisible' :[('is_company', '=', False )]}"/>
-                            <field name="accesos_usuario" attrs="{'invisible' :[('is_company', '=', True )]}"/>
+                            <field name="accesos" 
+                            domain="[('empresa','=', empresa)]"
+                            attrs="{'invisible' :[('is_company', '=', False )]}"/>
+                            <field name="accesos_usuario" 
+                            domain="[('empresa','=', empresa)]"
+                            attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
                 </notebook>
