@@ -8,14 +8,14 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="priority" eval="60"/>
             <field name="arch" type="xml">
-                <field name="phone" position="before">
+                <field name="category_id" position="after">
                     <field name="director"/>
                 </field>
                 <field name="director" position="after">
                     <field name="contacto"/>
                 </field>                
                 <notebook position="inside">
-                    <page string="servicios">
+                    <page string="Servicios">
                             <group>
                                 <field name="servicios"/>
                             </group>
