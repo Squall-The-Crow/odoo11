@@ -15,5 +15,5 @@ class cuentas(models.Model):
                                 ('remoto', 'Acceso Remoto'),
                                 ], string='Tipo de cuenta', default='usuario')
     empresa = fields.Many2one('res.partner', string='Empresa', ondelete='cascade', select=True, domain=[('is_company', '=', True)])
-    usuario = fields.Many2one('res.partner', string='Usuario')
+    usuario = fields.Many2one('res.partner', string='Usuario', domain=[('parent_id', '=', empresa.id)])
     equipo = fields.Many2one('sitecnet.equipos', string='Equipo asociado')

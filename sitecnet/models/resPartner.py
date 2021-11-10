@@ -5,8 +5,8 @@ from odoo import models, fields, api
 class resPartner(models.Model):
     _inherit = "res.partner"
     director = fields.Many2one('res.partner', string='Director', select=True, domain=[('is_company', '=', True)])# if company is true
-    contacto = fields.Many2one('res.partner', string='Contacto principal', select=True, domain=[('is_company', '=', True)])# if company is true
-    servicios = fields.One2many('sitecnet.servicios', 'empresa', string='Servicios contratados', copy=True, auto_join=True, select=True, domain=[('active_id.is_company', '=', True)])# if company is true
+    contacto = fields.Many2one('res.partner', string='Contacto principal', select=True, domain=[('is_company', '=', False)])# if company is true
+    servicios = fields.One2many('sitecnet.servicios', 'empresa', string='Servicios contratados', copy=True)# if company is true
     rutinas = fields.One2many('sitecnet.rutinas', 'empresa', string='Rutinas y Procesos')# if company is true
     rutinas_usuario = fields.Many2many('sitecnet.rutinas',
                               'rutinas_usuarios_rel',
