@@ -95,7 +95,7 @@
               <notebook>
                 <page string="Componentes">
                   <field name="componentes" domain="[('empresa','=', empresa)]">
-                    <tree string="Componentes" editable="bottom">
+                    <tree string="Componentes">
                       <field name="descripcion"/>
                       <field name="marca"/>
                       <field name="modelo"/>
@@ -109,8 +109,8 @@
                 <field name="observaciones"/> 
                 </page>
                 <page string="Licencias">
-                  <field name="licencias">
-                    <tree string="Licencias" editable="bottom">
+                  <field name="licencias" domain="[('empresa','=', empresa)]">
+                    <tree string="Licencias">
                       <field name="name"/>
                       <field name="licencia"/>
                       <field name="user"/>
