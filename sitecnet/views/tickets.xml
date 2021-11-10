@@ -14,14 +14,17 @@
                 <field name="partner_id" position="before">
                     <field name="empresa"/>
                 </field>
+                <field name="partner_id" position="replace">
+                    <field name="partner_id" domain="[('parent_id','=', empresa)]"/>
+                </field>
                 <field name="approval_id" position="after">
                     <field name="elevado"/>
                 </field>                  
                 <field name="state" position="after">
-                    <field name="usuario"/>
+                    <field name="usuario" domain="[('parent_id','=', empresa)]"/>
                 </field>
                 <field name="usuario" position="after">
-                    <field name="equipo"/>
+                    <field name="equipo" domain="[('usuario','=', usuario)]"/>
                 </field>
                 <field name="equipo" position="after">
                     <field name="conexion"/>
