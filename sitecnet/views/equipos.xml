@@ -43,7 +43,10 @@
                 <field name="tecnologia"/>
                 <field name="capacidad"/>
                 <field name="renta"/>
-                <field name="poliza"/>
+                <field name="poliza"
+                domain="[('empresa','=', empresa)]"
+                options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>/>
               </group>
               <group>
                   <field name="empresa" 
@@ -91,7 +94,8 @@
               </group>
               <notebook>
                 <page string="Componentes">
-                  <field name="componentes">
+                  <field name="componentes" 
+                  domain="[('empresa','=', empresa)]">
                     <tree string="Componentes" editable="bottom">
                       <field name="descripcion"/>
                       <field name="marca"/>
@@ -106,7 +110,8 @@
                 <field name="observaciones"/> 
                 </page>
                 <page string="Licencias">
-                  <field name="licencias">
+                  <field name="licencias"
+                  domain="[('empresa','=', empresa)]">
                     <tree string="Licencias" editable="bottom">
                       <field name="name"/>
                       <field name="licencia"/>
@@ -116,8 +121,9 @@
                   </field>
                 </page>
                 <page string="Cuentas">
-                  <field name="cuentas">
-                    <tree string="Cuentas" editable="bottom">
+                  <field name="cuentas"
+                  domain="[('empresa','=', empresa)]">
+                    <tree string="Cuentas">
                       <field name="name"/>
                       <field name="passw"/>
                       <field name="tipo"/>
@@ -125,7 +131,9 @@
                   </field>
                 </page>
                 <page string="Tickets">
-                  <field name="helpdesk" editable="bottom">
+                  <field name="helpdesk"
+                   options="{'no_create_edit': True},
+                           {'no_quick_create'}">
                     <tree>
                       <field name="create_date"/>
                       <field name="ticket_number"/>
