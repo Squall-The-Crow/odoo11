@@ -14,20 +14,10 @@ class helpdesk(models.Model):
                                    ('procedimiento', 'Solicitud de procedimiento / configuracion'),
                                     ('solicitud de conferencia', 'Solicitud de conferencia / capacitacion'),
                                    ], string='Tipo de soporte', default='consulta')
-<<<<<<< HEAD
-<<<<<<< HEAD
     empresa = fields.Many2one('res.partner', string='Cliente')#domain=[('is_company', '=', True)]
     usuario = fields.Many2one('res.partner', string='Usuario con problemas') #domain= [('partner_ids','in', empresa.id)]
     equipo = fields.Many2one('sitecnet.equipos', 'Equipo con problemas') #poner domain domain=[('partner.id', '=', usuario.id)]
-=======
-    empresa = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True)])
-    usuario = fields.Many2one('res.partner', string='Usuario con problemas', domain= [('partner_ids','in', empresa.id)])
-    equipo = fields.Many2one('sitecnet.equipos', 'Equipo con problemas',  domain=[('partner.id', '=', usuario.id)]) #poner domain
->>>>>>> parent of c4dae1e (Update helpdesk.py)
-=======
     reportado = fields.Many2one('res.users', string='Reportado Por', default=lambda self: self.env.user)
-    equipo = fields.Many2one('sitecnet.equipos', 'Equipo con problemas', required=True) #poner domain
->>>>>>> parent of b778a77 (se agregan la ultima vista de tickets)
     conexion = fields.Char('Conexion Remota')
     actividades = fields.One2many('sitecnet.actividades', 'reporte', string='Actividades', copy=True, auto_join=True)
     calificacion = fields.Selection([('bueno', 'Bueno'),
