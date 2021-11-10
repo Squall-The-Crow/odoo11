@@ -37,7 +37,7 @@ class equipos(models.Model):
     tecnologia = fields.Char('Técnologia')
     capacidad = fields.Char('Capacidad')       
     #Campos Relacionados
-    poliza = fields.Many2one('sitecnet.servicios', 'Poliza', required=True,)
+    poliza = fields.Many2one('sitecnet.servicios', 'Poliza',)
     tipo = fields.Many2one('sitecnet.tipo_equipo', 'Tipo', required=True,)#
     subtipo = fields.Many2one('sitecnet.subtipo_equipo', 'Subtipo', required=True,)#
     rutinas = fields.Many2many('sitecnet.rutinas',
