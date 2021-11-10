@@ -11,18 +11,29 @@
                     <field name="empresa"/>
                 </field>
                 <field name="empresa" position="after">
-                    <field name="usuario"/>
+                    <field name="usuario"
+                    domain="[('parent_id','=', empresa)]"
+                    options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
                 </field>                
                 <notebook position="inside">
                     <page string="Software">
                         <group>
-                            <field name="software"/>
+                            <field name="software"
+                            domain="[('empresa','=', empresa)]"
+                            />
                         </group>
                     </page>
                     <page string="Equipos">
                         <group>
-                            <field name="fequipos_cliente"/>
-                            <field name="fequipos_interna"/>
+                            <field name="fequipos_cliente"
+                            domain="[('empresa','=', empresa)]"
+                            options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
+                            <field name="fequipos_interna"
+                            domain="[('empresa','=', empresa)]"
+                            options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
                         </group>
                     </page>
                 </notebook>
