@@ -3,10 +3,9 @@
     <data>
         
         <record id="view_documents_form_inherit_sitecnet_module" model="ir.ui.view">
-            <field name="name">documents.sitecnet</field>
+            <field name="name">view.documents.inherit.form</field>
             <field name="model">muk_dms.file</field>
             <field name="inherit_id" ref="muk_dms.view_dms_directory_form"/>
-            <field name="priority" eval="60"/>
             <field name="arch" type="xml">
                 <field name="category" position="after">
                     <field name="empresa"/>
