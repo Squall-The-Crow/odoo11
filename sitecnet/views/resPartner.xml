@@ -15,7 +15,7 @@
                     <field name="contacto"/>
                 </field>                
                 <notebook position="inside">
-                    <page string="servicios">
+                    <page string="Servicios">
                             <group>
                                 <field name="servicios"/>
                             </group>
