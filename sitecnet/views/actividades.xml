@@ -22,14 +22,15 @@
       <field name="arch" type="xml">
         <form string="Actividades Form">
         <group>
-          <field name="name"/>
+            <field name="name"/>
             <field name="fecha"/>
             <field name="solucion"/>
             <field name="reporte" invisible="True"/>
-            <field name="fecha_programada" invisible="True"/>            
+            <field name="fecha_programada" invisible="True"/> 
+            <field name="diagnostico" attrs="{'invisible' :[('solucion', '=', True )]}"/>
+            <field name="resumen"/>           
           </group>
-          <field name="diagnostico" attrs="{'invisible' :[('solucion', '=', True )]}"/>
-        <field name="resumen"/>
+          
         </form>
       </field>
     </record>
