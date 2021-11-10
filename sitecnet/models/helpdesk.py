@@ -14,8 +14,8 @@ class helpdesk(models.Model):
                                    ('procedimiento', 'Solicitud de procedimiento / configuracion'),
                                     ('solicitud de conferencia', 'Solicitud de conferencia / capacitacion'),
                                    ], string='Tipo de soporte', default='consulta')
-    empresa = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True)])
-    usuario = fields.Many2one('res.partner', string='Usuario con problemas', domain= [('partner_ids','in', empresa.id)])
+    empresa = fields.Many2one('res.partner', string='Cliente')#domain=[('is_company', '=', True)]
+    usuario = fields.Many2one('res.partner', string='Usuario con problemas') #domain= [('partner_ids','in', empresa.id)]
     equipo = fields.Many2one('sitecnet.equipos', 'Equipo con problemas') #poner domain domain=[('partner.id', '=', usuario.id)]
     conexion = fields.Char('Conexion Remota')
     actividades = fields.One2many('sitecnet.actividades', 'reporte', string='Actividades', copy=True, auto_join=True)
