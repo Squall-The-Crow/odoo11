@@ -23,7 +23,7 @@
                     <page string="Rutinas">
                         <group>
                             <field name="rutinas"/>
-                            <field name="rutinas_usuario" domain="[('is_company','=',True)]"/>
+                            <field name="rutinas_usuario" attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>                    
                     </page>
                     <page string="Equipos">
