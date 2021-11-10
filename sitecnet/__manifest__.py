@@ -33,6 +33,8 @@
         'views/rutinas.xml',
         'views/cuentas.xml',
         'views/menu.xml',
+        'views/documentos.xml',
+        'views/resPartner.xml',
         #'views/herencia.xml', Partners, Usuarios, documentos y tickets
     ],
     # only loaded in demonstration mode

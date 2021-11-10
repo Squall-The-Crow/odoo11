@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        
+        <record id="view_res_partner_form_inherit_sitecnet_module" model="ir.ui.view">
+            <field name="name">res.partner.sitecnet</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="60"/>
+            <field name="arch" type="xml">
+                <field name="phone" position="before">
+                    <field name="director"/>
+                </field>
+                <field name="director" position="after">
+                    <field name="contacto"/>
+                </field>                
+                <notebook position="inside">
+                    <page string="servicios">
+                            <group>
+                                <field name="servicios"/>
+                            </group>
+                    </page>
+                    <page string="Rutinas">
+                        <group>
+                            <field name="rutinas"/>
+                            <field name="rutinas_usuario"/>
+                        </group>                    
+                    </page>
+                    <page string="Equipos">
+                        <group>
+                            <field name="equipos"/>
+                            <field name="equipos_usuario"/>
+                        </group>
+                    </page>
+                    <page string="Documentos">
+                        <group>
+                            <field name="documentos"/>
+                            <field name="documentos_usuario"/>
+                        </group>
+                    </page>
+                    <page string="Software">
+                        <group>
+                            <field name="software"/>
+                            <field name="software_usuario"/>
+                        </group>
+                    </page>
+                    <page string="Accesos">
+                        <group>
+                            <field name="accesos"/>
+                            <field name="accesos_usuario"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+       </record>
+       
+   </data>
+</openerp>

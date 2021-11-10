@@ -73,7 +73,7 @@
       <field name="priority" eval="2"/>
       <field name="arch" type="xml">
         <calendar string="Servicio Calendar" date_start="fecha" color="tecnico" event_open_popup="true">
-          <field name="tecnico"/>
+          <field name="name"/>
           <field name="empresa"/>
         </calendar>
       </field>

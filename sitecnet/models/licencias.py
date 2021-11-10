@@ -10,6 +10,7 @@ class software(models.Model):
     licencia = fields.Char('Numero de Licencia')
     user = fields.Char('Nombre de usuario')
     passw = fields.Char('Password')
+    cantidad = fields.Integer('Cantidad de asientos')
     fecha_compra = fields.Date('Fecha de Compra', required=True, )
     vigencia = fields.Date('Vigencia', required=True, )
     empresa = fields.Many2one('res.partner', string='Empresa', ondelete='cascade', select=True, domain=[('is_company', '=', True)])

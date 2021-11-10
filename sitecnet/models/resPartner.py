@@ -19,7 +19,7 @@ class resPartner(models.Model):
     accesos = fields.One2many('sitecnet.cuentas', 'empresa', string='Accesos', copy=True, auto_join=True)
     equipos_usuario = fields.One2many('sitecnet.equipos', 'usuario', string='Equipos', copy=True, auto_join=True)
     documentos_usuario = fields.One2many('muk_dms.file', 'usuario', 'Documentos')
-    software = fields.Many2many('sitecnet.software',
+    software_usuario = fields.Many2many('sitecnet.software',
                                 'software_usuarios_rel',
                                 'usuario_id',
                                 'software_id',
