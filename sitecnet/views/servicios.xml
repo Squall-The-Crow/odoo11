@@ -56,13 +56,14 @@
             </page>
             <page string="Equipos">
                 <field name="equipos"
-                domain="[('empresa','=', empresa)]"/>
+                domain="[('empresa','=', empresa)]">
                  <tree>
                       <field name="descripcion"/>
                       <field name="modelo"/>
                       <field name="usuario"/>
                       <field name="serie"/>
                     </tree>
+                    </field>
             </page>
         </notebook>  
 
