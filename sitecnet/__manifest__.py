@@ -35,7 +35,7 @@
         'views/menu.xml',
         'views/documentos.xml',
         'views/resPartner.xml',
-        #'views/herencia.xml', Partners, Usuarios, documentos y tickets
+        'views/tickets.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
