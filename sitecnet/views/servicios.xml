@@ -27,8 +27,14 @@
         <group string="Datos Generales">
             <group>
                 <field name="name"/>
-                <field name="empresa"/>
-                <field name="usuario" string="responsable"/>
+                <field name="empresa"
+                options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
+                <field name="usuario" 
+                string="responsable"
+                domain="[('parent_id','=', empresa)]"
+                options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
             </group>
             <group string="Programacion">
                 <field name="cantidad"/>
@@ -49,7 +55,10 @@
                 <field name="rutinas"/>
             </page>
             <page string="Equipos">
-                <field name="equipos"/>
+                <field name="equipos"
+                domain="[('empresa','=', empresa)]"
+                options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
             </page>
         </notebook>  
 
