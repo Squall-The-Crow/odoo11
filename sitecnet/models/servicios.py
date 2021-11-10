@@ -42,7 +42,7 @@ class rutinas(models.Model):
 
     name = fields.Char('Descripcion corta', required=True,)
     empresa = fields.Many2one('res.partner', string='Clientes', ondelete='cascade', select=True, domain=[('is_company', '=', True)])
-    usuario = fields.Many2one('res.partner', 'Encargado', domain=[('parent_id', '=', empresa.partner_id)])#poner filtro y dominio
+    usuario = fields.Many2one('res.partner', 'Encargado', domain=[('parent_id', '=', True)])#poner filtro y dominio
     tecnico = fields.Many2one ('res.users', 'Tecnico asignado')#poner filtro de tecnico
     fecha = fields.Datetime('Fecha programada de actividad')
     servicio = fields.Many2one ('sitecnet.servicios', 'Servicio de Origen')    
