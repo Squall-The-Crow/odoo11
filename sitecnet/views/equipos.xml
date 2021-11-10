@@ -94,8 +94,7 @@
               </group>
               <notebook>
                 <page string="Componentes">
-                  <field name="componentes" 
-                  domain="[('empresa','=', empresa)]">
+                  <field name="componentes" domain="[('empresa','=', empresa)]">
                     <tree string="Componentes" editable="bottom">
                       <field name="descripcion"/>
                       <field name="marca"/>
@@ -110,8 +109,7 @@
                 <field name="observaciones"/> 
                 </page>
                 <page string="Licencias">
-                  <field name="licencias"
-                  domain="[('empresa','=', empresa)]">
+                  <field name="licencias">
                     <tree string="Licencias" editable="bottom">
                       <field name="name"/>
                       <field name="licencia"/>
@@ -121,9 +119,8 @@
                   </field>
                 </page>
                 <page string="Cuentas">
-                  <field name="cuentas"
-                  domain="[('empresa','=', empresa)]">
-                    <tree string="Cuentas">
+                  <field name="cuentas">
+                    <tree string="Cuentas" editable="bottom">
                       <field name="name"/>
                       <field name="passw"/>
                       <field name="tipo"/>
@@ -131,9 +128,7 @@
                   </field>
                 </page>
                 <page string="Tickets">
-                  <field name="helpdesk"
-                   options="{'no_create_edit': True},
-                           {'no_quick_create'}">
+                  <field name="helpdesk" editable="bottom">
                     <tree>
                       <field name="create_date"/>
                       <field name="ticket_number"/>
