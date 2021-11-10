@@ -26,9 +26,17 @@
             <field name="passw"/>
             <field name="acceso"/>
             <field name="tipo"/>
-            <field name="usuario" domain="[('parent_id','=', empresa)]"/>
-            <field name="empresa"/>
-            <field name="equipo"  domain="[('empresa','=', empresa)]"/>
+            <field name="usuario" 
+            domain="[('parent_id','=', empresa)]"
+            options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
+            <field name="empresa"
+            options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
+            <field name="equipo"  
+            domain="[('empresa','=', empresa)]"
+            options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
           </group>
         </form>
       </field>

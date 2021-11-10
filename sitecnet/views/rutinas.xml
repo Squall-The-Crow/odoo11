@@ -28,7 +28,10 @@
         <group>
         <group>
           <field name="empresa"/>
-            <field name="usuario"/>
+            <field name="usuario"
+            domain="[('parent_id','=', empresa)]"
+            options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
             <field name="tecnico"/>
             </group>
             <group>
@@ -44,10 +47,12 @@
           </group>
           <notebook>
                 <page string="Usuarios">
-                  <field name="usuarios"/>
+                  <field name="usuarios"
+                  domain="[('parent_id','=', empresa)]"/>
                 </page>
                 <page string="Equipos">
-                  <field name="equipo"/>
+                  <field name="equipo"
+                  domain="[('empresa','=', empresa)]"/>
                 </page>
             </notebook>
         </form>
