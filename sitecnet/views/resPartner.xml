@@ -26,57 +26,57 @@
                     <page string="Servicios">
                             <group>
                                 <field name="servicios" 
-                                domain="[('empresa','=', empresa)]"
+                                domain="[('empresa','=', name)]"
                                 attrs="{'invisible' :[('is_company', '=', False )]}"/>
                             </group>
                     </page>
                     <page string="Rutinas">
                         <group>
                             <field name="rutinas" 
-                            domain="[('empresa','=', empresa)]"
+                            domain="[('empresa','=', name)]"
                             attrs="{'invisible' :[('is_company', '=', False )]}"/>
                             <field name="rutinas_usuario" 
-                            domain="[('empresa','=', empresa)]"
+                            domain="[('empresa','=', name)]"
                             attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>                    
                     </page>
                     <page string="Equipos">
                         <group>
                             <field name="equipos" 
-                            domain="[('empresa','=', empresa)]"
+                            domain="[('empresa','=', name)]"
                             attrs="{'invisible' :[('is_company', '=', False )]}"/>
                             <field name="equipos_usuario" 
-                            domain="[('empresa','=', empresa)]"
+                            domain="[('empresa','=', name)]"
                             attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
                     <page string="Documentos">
                         <group>
                             <field name="documentos" 
-                            domain="[('empresa','=', empresa)]"
+                            domain="[('empresa','=', name)]"
                             attrs="{'invisible' :[('is_company', '=', False )]}"/>
                             <field name="documentos_usuario" 
-                            domain="[('empresa','=', empresa)]"
+                            domain="[('empresa','=', name)]"
                             attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
                     <page string="Software">
                         <group>
                             <field name="software" 
-                            domain="[('empresa','=', empresa)]"
+                            domain="[('empresa','=', name)]"
                             attrs="{'invisible' :[('is_company', '=', False )]}"/>
                             <field name="software_usuario" 
-                            domain="[('empresa','=', empresa)]"
+                            domain="[('empresa','=', name)]"
                             attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
                     <page string="Accesos">
                         <group>
                             <field name="accesos" 
-                            domain="[('empresa','=', empresa)]"
+                            domain="[('empresa','=', name)]"
                             attrs="{'invisible' :[('is_company', '=', False )]}"/>
                             <field name="accesos_usuario" 
-                            domain="[('empresa','=', empresa)]"
+                            domain="[('empresa','=', name)]"
                             attrs="{'invisible' :[('is_company', '=', True )]}"/>
                         </group>
                     </page>
