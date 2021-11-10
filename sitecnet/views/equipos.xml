@@ -49,9 +49,17 @@
                            {'no_quick_create'}"/>
               </group>
               <group>
-                  <field name="empresa"/>
-                  <field name="usuario"/>
-                  <field name="equipo"/>
+                  <field name="empresa"
+                  options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
+                  <field name="usuario"
+                  domain="[('empresa','=', empresa)]"
+                  options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
+                  <field name="equipo"
+                  domain="[('empresa','=', empresa)]"
+                  options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
                   <field name="fecha_compra"/>
                   <field name="fin_garantia"/>
                   <field name="fecha_fin"/>
@@ -74,13 +82,19 @@
                 <field name="drivers"/> 
                 <field name="ip"/>                  
                 <field name="localizacion"/>
-                <field name="factura_cliente"/>
-                <field name="factura_interna"/>
+                <field name="factura_cliente"                
+                domain="[('empresa','=', empresa)]"
+                  options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
+                <field name="factura_interna"                
+                domain="[('empresa','=', empresa)]"
+                  options="{'no_create_edit': True},
+                           {'no_quick_create'}"/>
               </group>
               </group>
               <notebook>
                 <page string="Componentes">
-                  <field name="componentes">
+                  <field name="componentes" domain="[('empresa','=', empresa)]">
                     <tree string="Componentes" editable="bottom">
                       <field name="descripcion"/>
                       <field name="marca"/>
