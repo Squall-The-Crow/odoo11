@@ -34,8 +34,8 @@ class helpdesk(models.Model):
 
     @api.onchange('usuario')
     def _onchange_partner_id2(self):
-        self.telefono = self.partner_id.mobile
-        self.cel = self.partner_id.phone
+        self.telefono = self.usuario.mobile
+        self.cel = self.usuario.phone
 
 helpdesk()
 

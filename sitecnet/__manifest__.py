@@ -36,6 +36,7 @@
         'views/documentos.xml',
         'views/resPartner.xml',
         'views/tickets.xml',
+        'views/actividades.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
