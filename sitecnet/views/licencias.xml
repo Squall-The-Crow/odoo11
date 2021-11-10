@@ -39,13 +39,13 @@
               </group>
               <notebook>
                 <page string="Equipos">
-                  <field name="equipos"/>
+                  <field name="equipos" domain="[('empresa','=', empresa)]"/>
                 </page>
                 <page string="Usuarios">
-                  <field name="usuarios"/>
+                  <field name="usuarios" domain="[('parent_id','=', empresa)]"/>
                 </page>
                 <page string="Documentos">
-                  <field name="documentos"/>
+                  <field name="documentos" domain="[('empresa','=', empresa)]"/>
                 </page>
                 <page string="Notas">
                   <field name="notas"/>
