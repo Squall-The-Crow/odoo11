@@ -53,7 +53,7 @@
                   options="{'no_create_edit': True},
                            {'no_quick_create'}"/>
                   <field name="usuario"
-                  domain="[('empresa','=', empresa)]"
+                  domain="[('parent_id','=', empresa)]"
                   options="{'no_create_edit': True},
                            {'no_quick_create'}"/>
                   <field name="equipo"
