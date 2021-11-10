@@ -54,17 +54,9 @@
              <page string="Rutinas">
                 <field name="rutinas"/>
             </page>
-            <page string="Equipos">
-                <field name="equipos"
-                domain="[('empresa','=', empresa)]">
-                 <tree>
-                      <field name="descripcion"/>
-                      <field name="modelo"/>
-                      <field name="usuario"/>
-                      <field name="serie"/>
-                    </tree>
-                    </field>
-            </page>
+             <page string="Equipos">
+                  <field name="equipos" domain="[('empresa','=', empresa)]"/>
+                </page>
         </notebook>  
 
         </form>
