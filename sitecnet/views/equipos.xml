@@ -46,7 +46,7 @@
                 <field name="poliza"
                 domain="[('empresa','=', empresa)]"
                 options="{'no_create_edit': True},
-                           {'no_quick_create'}"/>/>
+                           {'no_quick_create'}"/>
               </group>
               <group>
                   <field name="empresa"/>
