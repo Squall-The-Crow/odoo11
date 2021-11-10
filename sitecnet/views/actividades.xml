@@ -26,7 +26,7 @@
             <field name="fecha"/>
             <field name="solucion"/>
             <field name="reporte" invisible="True"/>
-            <field name="fecha programada" invisible="True"/>            
+            <field name="fecha_programada" invisible="True"/>            
           </group>
           <field name="diagnostico" attrs="{'invisible' :[('solucion', '=', True )]}"/>
         <field name="resumen"/>
