@@ -32,7 +32,7 @@ class helpdesk(models.Model):
     def _onchange_equipo(self):
         self.conexion = self.equipo.ID_remoto
 
-    @api.onchange('partner_id')
+    @api.onchange('usuario')
     def _onchange_partner_id2(self):
         self.telefono = self.partner_id.mobile
         self.cel = self.partner_id.phone

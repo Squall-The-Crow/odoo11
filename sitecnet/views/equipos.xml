@@ -53,7 +53,8 @@
                   <field name="fin_garantia"/>
                   <field name="fecha_fin"/>
                   <field name="dominio"/>
-                  <field name="nombre_dominio"/>                                 
+                  <field name="nombre_dominio"/>   
+                  <field name="ID_remoto"/>                              
               </group>
               </group>
                <group string="informacion complementaria">
